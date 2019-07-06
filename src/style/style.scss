@@ -1,11 +1,13 @@
 @import './mixin';
 @import './theme.scss';
+@import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 方式二
 
+page {
+    background: #f4f4f4;
+}
 
 .flex {
     @include display-flex();
-
-    width: 100%;
 
     &__direction {
         &--row {

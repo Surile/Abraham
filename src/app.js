@@ -1,7 +1,7 @@
-import Taro, { Component } from '@tarojs/taro'
-import Index from './pages/index'
-
-import './app.scss'
+import Taro, { Component } from "@tarojs/taro";
+import http from "@/utils/http";
+import Index from "./pages/index";
+import "./style/style.scss";
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -10,34 +10,33 @@ import './app.scss'
 // }
 
 class App extends Component {
-
   config = {
-    pages: [
-      'pages/index/index'
-    ],
+    pages: ["pages/index/index", "pages/detail/index", "pages/search/index"],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#6190e8",
+      navigationBarTitleText: "垃圾分类指南",
+      navigationBarTextStyle: "white"
     }
+  };
+
+  componentWillMount() {
+    http.login();
   }
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
-    return (
-      <Index />
-    )
+  render() {
+    return <Index />;
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));
