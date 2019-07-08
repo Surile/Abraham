@@ -91,7 +91,7 @@ export default class Index extends Component {
                   </View>
                   <View className='item_text flex flex__direction--column'>
                     <Text>{item.title}</Text>
-                    <Text className='text_english'>{item.describe}</Text>
+                    <Text className='text_english'>{item.alias}</Text>
                   </View>
                 </View>
                 <View className='icon'>

@@ -1,0 +1,42 @@
+@import '../../style/theme.scss';
+
+.content {
+    margin: $spacing-h-lg;
+    padding: 0 $spacing-h-lg;
+    background: $color-white;
+
+    .detail_content--title {
+        padding: $spacing-h-lg;
+        font-size: $font-size-xl;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .detail-content-image {
+        padding-bottom: $spacing-h-lg;
+
+        image {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    .detail_content--description {
+        font-weight: bold;
+        padding-bottom: $spacing-h-lg;
+    }
+
+    .detail_put--in {
+        padding-bottom: $spacing-h-lg;
+
+        .title {
+            font-weight: bold;
+        }
+
+        .itme {
+            font-size: $font-size-sm;
+            margin-top: $spacing-h-md;
+            font-weight: 500;
+        }
+    }
+}
