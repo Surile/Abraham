@@ -1,8 +1,9 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Image } from "@tarojs/components";
 import { findAllType } from "@/client";
-import AtPage from "@/components";
+import { AtPage } from "@/components";
 import { AtSearchBar } from "taro-ui";
+import TaroSdk from "@/utils/wxSdk";
 import "./index.scss";
 
 export default class Index extends Component {
@@ -53,9 +54,32 @@ export default class Index extends Component {
     });
   }
 
+  onSearch(e) {
+    Taro.navigateTo({
+      url: `../search/index?val=${e.currentTarget.dataset.title}`
+    });
+  }
+
   onNav(id) {
     Taro.navigateTo({
       url: `../detail/index?id=${id}`
+    });
+  }
+
+  onPhotograph() {
+    TaroSdk.chooseImage().then(res => {
+      console.log(res);
+      if (res) {
+        Taro.navigateTo({
+          url: `../result/index?path=${res}`
+        });
+      } else {
+        Taro.showToast({
+          title: "请上传图片",
+          icon: "error",
+          duration: 1000
+        });
+      }
     });
   }
   render() {
@@ -69,11 +93,22 @@ export default class Index extends Component {
             onChange={this.onChange.bind(this)}
             onActionClick={this.onActionClick.bind(this)}
           />
+          <View className='icon flex'>
+            <View
+              onClick={this.onPhotograph}
+              className='icon_item flex flex__direction--column flex__justify--center flex__align--center'
+            >
+              <View className='photo_img' />
+              拍照识别
+            </View>
+          </View>
         </View>
         <View className='hot-search'>
           <View className='hot-search_title'>热门搜索</View>
           <View className='hot-search_item flex flex--warp'>
-            <View className='item'>面膜</View>
+            <View onClick={this.onSearch} data-title='面膜' className='item'>
+              面膜
+            </View>
           </View>
         </View>
         <View className='content'>
@@ -91,7 +126,7 @@ export default class Index extends Component {
                   </View>
                   <View className='item_text flex flex__direction--column'>
                     <Text>{item.title}</Text>
-                    <Text className='text_english'>{item.alias}</Text>
+                    <Text className='text_english'>{item.english}</Text>
                   </View>
                 </View>
                 <View className='icon'>

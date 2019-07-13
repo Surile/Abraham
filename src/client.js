@@ -7,4 +7,8 @@ export const findAllType = () => http.get("/type");
 export const fetchDetail = id => http.get(`/type/${id}`);
 
 // 搜索
-export const serachDetail = params => http.post("/search", params);
+export const serachDetail = params => http.post("/goods/search", params);
+
+// 获取百度Token
+
+export const getBaiDuToken = () => http.get("/image");

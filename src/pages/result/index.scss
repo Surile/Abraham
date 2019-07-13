@@ -1,0 +1,84 @@
+@import '../../style/theme.scss';
+
+page {
+    background: $color-white;
+}
+
+.container {
+    .preview {
+        height: 300px;
+        padding: $spacing-h-lg;
+
+        image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        padding: $spacing-h-md;
+
+        .content_tile {
+            font-size: $font-size-md;
+            font-weight: bold;
+
+            .content_val {
+                margin: $spacing-h-xl * 2;
+                height: 80px;
+                line-height: 80px;
+                color: $color-white;
+                background: $color-brand;
+                font-size: $font-size-lg;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+                text-align: center;
+                border-radius: 100px;
+            }
+        }
+
+        .content_item {
+            padding: $spacing-h-lg 0 $spacing-h-lg 0;
+
+            .title {
+                font-size: $font-size-md;
+                font-weight: bold;
+            }
+
+            .item {
+                font-size: $font-size-md;
+                font-weight: bold;
+                padding: $spacing-h-md $spacing-h-lg $spacing-h-md $spacing-h-lg;
+                margin-left: $spacing-h-md;
+                margin-top: $spacing-h-lg;
+                text-align: center;
+                border: 2px $color-border-grey dashed;
+                border-radius: 100px;
+            }
+        }
+
+
+        .content_footer {
+            margin-top: $spacing-h-xl;
+            padding: 0 $spacing-h-xl 0 $spacing-h-xl;
+
+            input {
+                height: 70px;
+                font-size: $font-size-md;
+                padding: 0 $spacing-h-lg 0 $spacing-h-lg;
+                border-radius: 100px;
+                border: 1px solid $color-brand;
+            }
+        }
+    }
+
+
+    .btn_next {
+        height: 60px;
+        color: $color-white;
+        line-height: 60px;
+        margin: $spacing-h-lg * 2 $spacing-h-lg * 6 0 $spacing-h-lg * 6;
+        padding: $spacing-h-md 0 $spacing-h-md 0;
+        text-align: center;
+        background: $color-brand;
+        border-radius: 100px;
+    }
+}

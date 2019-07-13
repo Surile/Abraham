@@ -1,0 +1,44 @@
+@import '../../style/theme.scss';
+
+.type {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    background: $color-white;
+    margin: 0 $spacing-h-lg;
+    padding: $spacing-h-lg;
+
+    .type_title {
+        font-size: $font-size-lg;
+        margin-top: $spacing-h-lg;
+    }
+
+    .description {
+        margin-top: $spacing-h-lg;
+        font-size: $font-size-sm;
+        font-weight: 400;
+    }
+
+    image {
+        margin-top: $spacing-h-sm;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+.put {
+    margin: $spacing-h-lg $spacing-h-lg 0 $spacing-h-lg;
+    padding: $spacing-h-lg;
+    background: $color-white;
+
+    .put-type_title {
+        font-size: $font-size-lg;
+        font-weight: bold;
+    }
+
+    .item {
+        font-size: $font-size-sm;
+        margin-top: $spacing-h-md;
+        font-weight: 500;
+    }
+}

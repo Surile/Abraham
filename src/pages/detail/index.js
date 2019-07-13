@@ -27,22 +27,18 @@ export default class Detail extends Component {
         <View className='content'>
           <View className='detail_content--title'>{this.state.data.title}</View>
           <View className='detail-content-image flex flex__align--center flex__justify--center'>
-            <Image src='https://wx4.sinaimg.cn/large/006a7eb0ly1g4r8o15tiyj305k05kgli.jpg' />
+            <Image src={this.state.data.image} />
           </View>
           <View className='detail_content--description'>
             {this.state.data.description}
           </View>
           <View className='detail_put--in'>
             <View className='title'>{this.state.data.title}投放指南</View>
-            <View className='itme'>
-              用过的餐巾纸、尿片等由于沾有各类污迹，无回收利用价值，宜作为其他垃圾进行处理。
-            </View>
-            <View className='itme'>
-              用过的餐巾纸、尿片等由于沾有各类污迹，无回收利用价值，宜作为其他垃圾进行处理。
-            </View>
-            <View className='itme'>
-              用过的餐巾纸、尿片等由于沾有各类污迹，无回收利用价值，宜作为其他垃圾进行处理。
-            </View>
+            {this.state.data.details.map(item => (
+              <View key={item.id} className='itme'>
+                {item.text}
+              </View>
+            ))}
           </View>
         </View>
       </AtPage>
