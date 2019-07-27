@@ -24,6 +24,8 @@
 
 ### 后端项目
 
+> 后台服务，已部署到服务器上，可直接拉取前端项目运行。
+
 [Samle](https://github.com/Surile/samle)
 
 ### 运行
