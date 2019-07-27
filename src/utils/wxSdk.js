@@ -30,16 +30,20 @@ export default class TaroSdk {
       });
     });
   }
-  static aiPhoto(path) {
+  static aiPhoto(params) {
+    console.log(params);
     return new Promise(resolve => {
-      getBaiDuToken().then(result => {
-        if (result.access_token) {
-          this.uploadFile(result.access_token, path).then(res => {
-            const data = JSON.parse(res.data);
-            resolve(data);
-          });
-        }
+      this.uploadFile(params.token, params.file).then(res => {
+        const data = JSON.parse(res.data);
+        resolve(data);
       });
+    });
+  }
+
+  static getBaiduToken() {
+    getBaiDuToken().then(res => {
+      Taro.setStorageSync("access_token", res.access_token);
+      Taro.setStorageSync("time", new Date().getTime());
     });
   }
 }

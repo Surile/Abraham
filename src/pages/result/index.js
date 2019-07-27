@@ -14,14 +14,25 @@ export default class Result extends Component {
       this.setState({
         path: this.$router.params.path
       });
-      this.uploadFile(this.$router.params.path);
+      var time = Taro.getStorageSync("time");
+      var accessToken = Taro.getStorageSync("access_token");
+      var curTime = new Date().getTime();
+      var timeNum = new Date(parseInt(curTime - time) * 1000).getDay();
+      if (timeNum > 28 || !accessToken) {
+        TaroSdk.getBaiduToken();
+      } else {
+        this.uploadFile({
+          token: accessToken,
+          file: this.$router.params.path
+        });
+      }
     } else {
       Taro.navigateBack();
     }
   }
 
-  uploadFile(path) {
-    TaroSdk.aiPhoto(path).then(res => {
+  uploadFile(params) {
+    TaroSdk.aiPhoto(params).then(res => {
       this.setState({
         data: res.result
       });

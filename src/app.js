@@ -2,6 +2,7 @@ import Taro, { Component } from "@tarojs/taro";
 import http from "@/utils/http";
 import Index from "./pages/index";
 import "./style/style.scss";
+import TaroSdk from "./utils/wxSdk";
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -27,15 +28,8 @@ class App extends Component {
 
   componentWillMount() {
     http.login();
+    TaroSdk.getBaiduToken();
   }
-
-  componentDidMount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
-
-  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
