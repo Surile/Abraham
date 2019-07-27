@@ -31,7 +31,6 @@ export default class TaroSdk {
     });
   }
   static aiPhoto(params) {
-    console.log(params);
     return new Promise(resolve => {
       this.uploadFile(params.token, params.file).then(res => {
         const data = JSON.parse(res.data);
